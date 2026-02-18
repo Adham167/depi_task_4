@@ -1,3 +1,4 @@
+import 'package:depi_task4/views/pending_tasks_view.dart';
 import 'package:depi_task4/views/tasks_view.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
       useInheritedMediaQuery: true,
       locale: DevicePreview.locale(context),
       builder: DevicePreview.appBuilder,
-      home: TasksView(),
+      home: PendingTasksView(),
     );
   }
 }

@@ -1,16 +1,21 @@
 
 import 'package:flutter/material.dart';
 
-class TasksListTileWidget extends StatelessWidget {
-  const TasksListTileWidget({
+class CustomListTile extends StatelessWidget {
+  const CustomListTile({
     super.key,
+    required this.Title,
+    required this.subTitle,
+    required this.icon,
   });
-
+  final String Title;
+  final String subTitle;
+  final Widget icon;
   @override
   Widget build(BuildContext context) {
     return ListTile(
       title: Text(
-        "Tasks",
+        Title,
         style: TextStyle(
           color: Colors.black,
           fontSize: 34,
@@ -18,21 +23,14 @@ class TasksListTileWidget extends StatelessWidget {
         ),
       ),
       subtitle: Text(
-        "October 15",
+        subTitle,
         style: TextStyle(
           color: Color(0xFF757575),
           fontSize: 12,
           fontWeight: FontWeight.normal,
         ),
       ),
-      trailing: CircleAvatar(
-        radius: 20,
-        backgroundColor: Colors.black,
-        child: InkWell(
-          onTap: () {},
-          child: Icon(Icons.add, color: Colors.white, size: 35),
-        ),
-      ),
+      trailing: icon,
     );
   }
 }
