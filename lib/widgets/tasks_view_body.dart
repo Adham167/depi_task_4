@@ -9,6 +9,7 @@ class TasksViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        SizedBox(height: 100),
         CustomListTile(
           Title: "Tasks",
           subTitle: "october 10",

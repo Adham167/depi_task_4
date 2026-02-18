@@ -9,6 +9,8 @@ class PendingTaskViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
+                SizedBox(height: 100),
+
         CustomListTile(
           Title: "Pending",
           subTitle: "october 10",
