@@ -1,3 +1,4 @@
+import 'package:depi_task4/widgets/tasks_list_tile_widget.dart';
 import 'package:flutter/material.dart';
 
 class TasksView extends StatelessWidget {
@@ -9,32 +10,7 @@ class TasksView extends StatelessWidget {
       backgroundColor: Colors.white,
       body: Column(
         children: [
-          ListTile(
-            title: Text(
-              "Tasks",
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 34,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            subtitle: Text(
-              "October 15",
-              style: TextStyle(
-                color: Color(0xFF757575),
-                fontSize: 12,
-                fontWeight: FontWeight.normal,
-              ),
-            ),
-            trailing: CircleAvatar(
-              radius: 20,
-              backgroundColor: Colors.black,
-              child: InkWell(
-                onTap: () {},
-                child: Icon(Icons.add, color: Colors.white, size: 35),
-              ),
-            ),
-          ),
+          TasksListTileWidget(),
         ],
       ),
     );
