@@ -1,6 +1,7 @@
 import 'package:depi_task4/widgets/custom_list_tile.dart';
 import 'package:depi_task4/widgets/tasks_list_view.dart';
 import 'package:flutter/material.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
 
 class CompletedTasksViewBody extends StatelessWidget {
   const CompletedTasksViewBody({super.key});
@@ -22,6 +23,17 @@ class CompletedTasksViewBody extends StatelessWidget {
           ),
         ),
         TasksListView(),
+        // Spacer(),
+        // GNav(
+        //   backgroundColor: Colors.white,
+        //   gap: 8,
+        //   padding: EdgeInsets.all(12),
+        //   tabs: [
+        //     GButton(text: 'Home', icon: Icons.home),
+        //     GButton(text: 'Search', icon: Icons.search),
+        //     GButton(text: 'Profile', icon: Icons.person),
+        //   ],
+        // ),
       ],
     );
   }
