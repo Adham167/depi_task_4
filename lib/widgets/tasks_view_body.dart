@@ -1,13 +1,17 @@
+import 'package:depi_task4/controllers/tasks_provider.dart';
 import 'package:depi_task4/views/add_task_view.dart';
 import 'package:depi_task4/widgets/custom_list_tile.dart';
 import 'package:depi_task4/widgets/tasks_list_view.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class TasksViewBody extends StatelessWidget {
   const TasksViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
+            final tasks = context.watch<TasksProvider>().tasks;
+
     return Column(
       children: [
         SizedBox(height: 100),
@@ -26,7 +30,7 @@ class TasksViewBody extends StatelessWidget {
             ),
           ),
         ),
-        TasksListView(),
+        TasksListView(tasks:tasks,),
       ],
     );
   }

@@ -15,7 +15,7 @@ class CategorySelector extends StatelessWidget {
         const Text("Category", style: TextStyle(fontWeight: FontWeight.bold)),
         const SizedBox(height: 8),
         DropdownButtonFormField<String>(
-          value: provider.selectedCategory,
+          initialValue: provider.selectedCategory,
           items: provider.categories
               .map(
                 (category) =>

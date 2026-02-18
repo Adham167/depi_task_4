@@ -16,13 +16,10 @@ class DatePickerField extends StatelessWidget {
         const SizedBox(height: 8),
         TextFormField(
           readOnly: true,
-          controller: TextEditingController(
-            text: provider.selectedDate == null
-                ? ''
-                : "${provider.selectedDate!.day}/${provider.selectedDate!.month}/${provider.selectedDate!.year}",
-          ),
           decoration: InputDecoration(
-            hint: Text("10/20/24"),
+            hintText: provider.selectedDate == null
+                ? "10/20/24"
+                : "${provider.selectedDate!.day}/${provider.selectedDate!.month}/${provider.selectedDate!.year}",
             suffixIcon: IconButton(
               icon: const Icon(Icons.calendar_month),
               onPressed: () {
