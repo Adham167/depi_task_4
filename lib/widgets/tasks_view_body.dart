@@ -1,3 +1,4 @@
+import 'package:depi_task4/views/add_task_view.dart';
 import 'package:depi_task4/widgets/custom_list_tile.dart';
 import 'package:depi_task4/widgets/tasks_list_view.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +18,10 @@ class TasksViewBody extends StatelessWidget {
             radius: 20,
             backgroundColor: Colors.black,
             child: InkWell(
-              onTap: () {},
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => AddTaskView()),
+              ),
               child: Icon(Icons.add, color: Colors.white, size: 35),
             ),
           ),
