@@ -1,37 +1,44 @@
-import 'package:depi_task4/controllers/tasks_provider.dart';
+import 'package:depi_task4/bloc/tasks_cubit/tasks_cubit.dart';
+import 'package:depi_task4/bloc/tasks_cubit/tasks_state.dart';
 import 'package:depi_task4/views/add_task_view.dart';
 import 'package:depi_task4/widgets/custom_list_tile.dart';
 import 'package:depi_task4/widgets/tasks_list_view.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class TasksViewBody extends StatelessWidget {
   const TasksViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
-            final tasks = context.watch<TasksProvider>().tasks;
+    return BlocBuilder<TasksCubit, TasksState>(
+      builder: (context, state) {
+        final tasks = state.tasks;
 
-    return Column(
-      children: [
-        SizedBox(height: 100),
-        CustomListTile(
-          Title: "Tasks",
-          subTitle: "october 10",
-          icon: CircleAvatar(
-            radius: 20,
-            backgroundColor: Colors.black,
-            child: InkWell(
-              onTap: () => Navigator.push(
-                context,
-                MaterialPageRoute(builder: (_) => AddTaskView()),
+        return Column(
+          children: [
+            const SizedBox(height: 100),
+
+            CustomListTile(
+              Title: "Tasks",
+              subTitle: "October 10",
+              icon: CircleAvatar(
+                radius: 20,
+                backgroundColor: Colors.black,
+                child: InkWell(
+                  onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (_) => AddTaskView()),
+                  ),
+                  child: const Icon(Icons.add, color: Colors.white, size: 35),
+                ),
               ),
-              child: Icon(Icons.add, color: Colors.white, size: 35),
             ),
-          ),
-        ),
-        TasksListView(tasks:tasks,),
-      ],
+
+            TasksListView(tasks: tasks),
+          ],
+        );
+      },
     );
   }
 }

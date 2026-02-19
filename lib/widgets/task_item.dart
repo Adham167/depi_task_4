@@ -1,8 +1,7 @@
-
-import 'package:depi_task4/controllers/tasks_provider.dart';
+import 'package:depi_task4/bloc/tasks_cubit/tasks_cubit.dart';
 import 'package:depi_task4/models/task_model.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class TaskItem extends StatelessWidget {
   final TaskModel task;
@@ -13,14 +12,14 @@ class TaskItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       onTap: () {
-        context.read<TasksProvider>().toggleTask(task.id);
+        context.read<TasksCubit>().toggleTask(task.id);
       },
       leading: Checkbox(
         splashRadius: 20,
         activeColor: Colors.green,
         value: task.isChecked,
         onChanged: (_) {
-          context.read<TasksProvider>().toggleTask(task.id);
+          context.read<TasksCubit>().toggleTask(task.id);
         },
       ),
       title: Text(
@@ -36,7 +35,7 @@ class TaskItem extends StatelessWidget {
         ),
       ),
       subtitle: Text(
-        "${task.dateTime.hour}:${task.dateTime.minute}",
+        "${task.dateTime.hour.toString().padLeft(2, '0')}:${task.dateTime.minute.toString().padLeft(2, '0')}",
         style: const TextStyle(color: Color(0xFFA3A3A3), fontSize: 13),
       ),
     );
